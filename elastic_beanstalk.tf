@@ -69,7 +69,7 @@ resource "aws_elastic_beanstalk_environment" "beanstalkappenv" {
   }
 
   # Configure HTTPS protocol with ACM certificates
-  setting {
+  /*setting {
     namespace = "aws:elbv2:listener:443"
     name      = "Protocol"
     value     = "HTTPS"
@@ -78,15 +78,15 @@ resource "aws_elastic_beanstalk_environment" "beanstalkappenv" {
     namespace = "aws:elbv2:listener:443"
     name      = "SSLCertificateArns"
     value     = "${aws_acm_certificate.my_acm_certificate.arn}"
-  }
+  }*/
 }
 
 # Create an ACM certificate for HTTPS
-resource "aws_acm_certificate" "my_acm_certificate" {
+/*resource "aws_acm_certificate" "my_acm_certificate" {
   domain_name       = "example.com"
   validation_method = "DNS"
 
   tags = {
     Name = "My ACM Certificate"
   }
-}
+}*/
