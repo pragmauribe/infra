@@ -65,5 +65,5 @@ stages:
             inputs:
               provider: 'aws'
               command: 'apply'
-              commandOptions: 'auto-approve'
+              commandOptions: '-auto-approve'
               environmentServiceNameAWS: 'AWSTerraform'
