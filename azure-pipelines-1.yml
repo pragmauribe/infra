@@ -43,6 +43,18 @@ stages:
     jobs:
       - job: apply
         steps:
+          - task: TerraformInstaller@1
+            displayName: 'Install Terraform'
+            inputs:
+              terraformVersion: 'latest'
+          - task: TerraformTaskV4@4
+            displayName: 'Terraform init'
+            inputs:
+              provider: 'aws'
+              command: 'init'
+              backendServiceAWS: 'AWSTerraform'
+              backendAWSBucketName: '$(bucket)'
+              backendAWSKey: '$(state)'
           - task: TerraformTaskV4@4
             displayName: 'terraform plan'
             inputs:
