@@ -48,8 +48,9 @@ stages:
             inputs:
               provider: 'aws'
               command: 'plan'
+              environmentServiceNameAWS: 'AWSTerraform'
           - task: TerraformTaskV4@4
             displayName: 'terraform apply'
             inputs:
               provider: 'aws'
-              command: 'apply'
+              command: 'apply'      
